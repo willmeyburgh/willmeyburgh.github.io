@@ -95,6 +95,3 @@ lerna-debug.log*
 
 # Vite
 .vite/
-
-# Vue
-*.vue
