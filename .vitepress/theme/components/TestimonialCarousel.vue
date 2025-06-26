@@ -279,7 +279,6 @@ const handleTouchEnd = () => {
 .author-details {
   display: flex;
   align-items: center;
-  margin-top: 20px;
 }
 
 .author-image {
@@ -290,6 +289,10 @@ const handleTouchEnd = () => {
   object-fit: cover;
 }
 
+.author-title{
+  line-height: 1.2;
+}
+
 .author-info {
   font-size: 0.8em;
   color: var(--vp-c-text-2);
@@ -298,8 +301,8 @@ const handleTouchEnd = () => {
 .author-name {
   font-weight: bold;
   color: var(--vp-c-brand-1);
-  margin-bottom: -20px;
   font-size: 1.4em;
+  margin-bottom: -15px;
 }
 
 .carousel-controls {

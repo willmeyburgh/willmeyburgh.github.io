@@ -86,6 +86,7 @@ const handleSubmit = async () => {
   box-sizing: border-box;
   background-color: var(--vp-c-bg);
   color: var(--vp-c-text-1);
+  font-family: inherit;
 }
 
 .form-group input[type="text"]:focus,

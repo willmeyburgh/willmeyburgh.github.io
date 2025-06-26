@@ -1,6 +1,6 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
-import { onMounted } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue' // Import onBeforeUnmount for cleanup
 
 onMounted(() => {
   const starfield = document.createElement('div');
@@ -52,6 +52,13 @@ onMounted(() => {
     shootingStar.style.animationDelay = `${Math.random() * 10}s`; // Vary delay
     starfield.appendChild(shootingStar);
   }
+
+  // Cleanup the starfield element when the component is unmounted
+  onBeforeUnmount(() => {
+    if (starfield.parentNode) {
+      starfield.parentNode.removeChild(starfield);
+    }
+  });
 });
 </script>
 
@@ -79,13 +86,21 @@ onMounted(() => {
 <style>
 /* Styles for dynamically created stars */
 #starfield {
-  position: fixed;
+  position: fixed; /* Keep position fixed for desktop and attempt to fix mobile */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: -1;
+
+  /* ** IMPORTANT: Mobile Safari/iOS position:fixed bug fix ** */
+  /* This often forces the browser to render fixed elements on the GPU,
+     reducing or eliminating the "jolt" when scrolling stops. */
+  -webkit-transform: translateZ(0); /* For older WebKit browsers (iOS Safari) */
+  transform: translateZ(0); /* Modern browsers */
+  -webkit-backface-visibility: hidden; /* Another GPU acceleration hint */
+  will-change: transform; /* Inform browser of expected changes */
 }
 
 .static-star {
@@ -105,7 +120,7 @@ onMounted(() => {
 
 /* Shooting star styles */
 .shooting-star {
-  position: fixed;
+  position: fixed; /* Keep position fixed for shooting stars too */
   top: -100px; /* Start above the viewport */
   left: 50%;
   width: 0px; /* Size of the star head */
@@ -116,6 +131,12 @@ onMounted(() => {
   z-index: 9999;
   pointer-events: none;
   animation: animateShootingStar 10s linear infinite; /* Animation duration */
+
+  /* ** IMPORTANT: Apply the same fix to shooting stars ** */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* Shooting star tail effect using a pseudo-element */
@@ -135,11 +156,13 @@ onMounted(() => {
 /* Animation for shooting stars (streaking effect) */
 @keyframes animateShootingStar {
   0% {
-    transform: translate(0, 0);
+    /* Use translate3d for the animation to keep it on GPU */
+    transform: translate3d(0, 0, 0);
     opacity: 1;
   }
   100% {
-    transform: translate(-1500px, 1500px); /* Move diagonally */
+    /* Use translate3d for the animation to keep it on GPU */
+    transform: translate3d(-1500px, 1500px, 0); /* Move diagonally */
     opacity: 0;
   }
 }
