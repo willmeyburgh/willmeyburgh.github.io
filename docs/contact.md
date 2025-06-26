@@ -12,6 +12,6 @@ I'm always open to new opportunities, collaborations, or just a friendly chat! F
 
 You can also use the form below to send me a direct message. I'll get back to you as soon as possible!
 
-<ContactForm />
+<ContactForm/>
 
 Looking forward to hearing from you!

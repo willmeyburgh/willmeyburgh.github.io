@@ -1,16 +1,16 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="contact-form">
+  <form action="https://formsubmit.co/annekinmeyburgh@gmail.com" method="POST" class="contact-form">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" id="name" v-model="form.name" required>
+      <input type="text" name="name" id="name" v-model="form.name" required>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="form.email" required>
+      <input type="email" name="email" id="email" v-model="form.email" required>
     </div>
     <div class="form-group">
       <label for="message">Message:</label>
-      <textarea id="message" v-model="form.message" rows="5" required></textarea>
+      <textarea id="message" name = "message" v-model="form.message" rows="5" required></textarea>
     </div>
     <button type="submit" class="submit-button">Send Message</button>
     <p v-if="successMessage" class="success-message">{{ successMessage }}</p>

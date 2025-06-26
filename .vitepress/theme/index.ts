@@ -2,7 +2,6 @@ import DefaultTheme from 'vitepress/theme'
 import Layout from './Layout.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import ContactForm from './components/ContactForm.vue'
-
 import TestimonialCarousel from './components/TestimonialCarousel.vue'
 
 import './style.css'
