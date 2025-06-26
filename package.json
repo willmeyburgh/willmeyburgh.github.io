@@ -1,0 +1,27 @@
+{
+  "name": "awmeyburgh.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev src",
+    "build": "vitepress build src",
+    "preview": "vitepress preview src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awmeyburgh/awmeyburgh.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awmeyburgh/awmeyburgh.github.io/issues"
+  },
+  "homepage": "https://github.com/awmeyburgh/awmeyburgh.github.io#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.3",
+    "vue": "^3.5.17"
+  }
+}
