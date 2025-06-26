@@ -1,6 +1,6 @@
 # Welcome to My Personal Website!
 
-Hi, I'm Annekin, a dedicated software engineer with a strong foundation in back-stack development and a love for machine learning and agentic AI. I have a passion for building scalable and efficient applications. My journey into the world of code began with a fascination for how technology can transform ideas into tangible solutions.
+Welcome! I'm Annekin, a software engineer with a solid foundation in back-end engineering, now channeling my passion into machine learning and agentic AI. My journey is about transforming ideas into tangible, intelligent solutions, focusing on building scalable and efficient applications for the future.
 
 ## What You'll Find Here
 

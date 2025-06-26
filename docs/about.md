@@ -1,6 +1,6 @@
 # About
 
-Hi, I'm Annekin, a dedicated software engineer with a strong foundation in back-stack development and a love for machine learning and agentic AI. I have a passion for building scalable and efficient applications. My journey into the world of code began with a fascination for how technology can transform ideas into tangible solutions.
+Hello! I'm Annekin. My career as a software engineer has been deeply rooted in back-end development, where I honed my skills in building robust, scalable, and efficient systems. This solid foundation has now propelled me into the dynamic fields of machine learning and agentic AI. I'm driven by the same passion for turning complex problems into elegant solutions, now with a focus on designing and implementing intelligent systems that push technological boundaries. I believe my structured engineering approach is a significant asset in navigating the complexities of AI development.
 
 ## My Expertise
 
@@ -18,4 +18,4 @@ I believe in writing simple, clean, and maintainable code. My approach to proble
 
 ## Beyond the Code
 
-When I'm not coding, I enjoy philosophing, exploring different schools of thought and pondering the big questions. I also practice meditation to cultivate mindfulness and find inner peace. Additionally, I enjoy gaming, which provides a fun way to unwind and engage with creative storytelling.
+When I'm not immersed in code, I'm often found exploring the depths of philosophy. My reflections are particularly shaped by the profound insights of Nietzsche, the wisdom of Buddhism and Taoism, and the practical resilience offered by the Stoics. This intellectual exploration, alongside my meditation practice, helps cultivate mindfulness and a deeper understanding of the world. Additionally, I enjoy gaming, which provides a fun way to unwind and engage with creative storytelling.
