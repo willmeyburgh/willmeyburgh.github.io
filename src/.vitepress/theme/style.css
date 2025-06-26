@@ -1,0 +1,25 @@
+:root {
+  --vp-c-bg: #1a1a1a; /* deep dark background */
+  --vp-c-text-1: #e0e0e0; /* light text for readability */
+  --vp-c-text-2: #b0b0b0; /* secondary text color */
+  --vp-c-brand-1: #00f0ff; /* vibrant neon blue */
+  --vp-c-brand-2: #8a2be2; /* vibrant neon purple */
+  --vp-c-brand-3: #39ff14; /* vibrant neon green */
+  --vp-c-divider: #444444; /* subtle dividers */
+}
+
+body {
+  background-color: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+
+.VPHero .name.text {
+  background-image: linear-gradient(
+    120deg,
+    var(--vp-c-brand-1) 0%,
+    var(--vp-c-brand-2) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
