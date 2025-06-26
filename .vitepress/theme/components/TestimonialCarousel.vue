@@ -194,7 +194,7 @@ const activeDotIndex = computed(() => {
   align-items: center;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid var(--vp-c-brand-1-darker);
+  border: 1px solid var(--vp-c-brand-1-darker);
   border-radius: 8px;
 }
 
@@ -306,7 +306,7 @@ const activeDotIndex = computed(() => {
 }
 
 .carousel-dots span.active {
-  background-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-brand-1-darker-2x);
 }
 
 .no-testimonials {

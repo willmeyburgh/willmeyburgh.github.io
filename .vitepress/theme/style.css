@@ -10,6 +10,66 @@
   --vp-c-brand-1-darker-2x: #009999; /* 2x darker neon blue */
 }
 
+/* Remove the black line under the navbar */
+.VPNavBar .divider {
+  display: none;
+}
+
+/* Hide the line under "On this page" in mobile */
+/* Try these in your .vitepress/theme/custom.css, one by one if needed */
+
+/* Most likely candidates for the "On this page" line */
+/* Custom CSS in .vitepress/theme/custom.css */
+
+@media (max-width: 959px) { /* Ensure this targets mobile views */
+
+  .VPDocAsideOutline .content {
+    /* Re-add the border with a lighter gray variable */
+    /* var(--vp-c-gray-1) is a good option for a subtle, visible line in dark mode */
+    border-bottom: 1px solid var(--vp-c-gray-1);
+
+    /* Re-introduce padding below the line to create space for content below it */
+    /* Adjust this value (e.g., 16px, 20px) to control the spacing */
+    padding-bottom: 16px;
+  }
+
+  /*
+    Keep these rules if you want to ensure no other element in that section
+    is also accidentally adding a border or shadow.
+    However, the `.content` border should be the primary one.
+  */
+  .VPDocAsideOutline .outline-title {
+    border-bottom: none !important; /* Ensure no border on the title itself */
+    padding-bottom: 0 !important;
+  }
+
+  /*
+    If you're certain these .divider classes weren't the culprit for the "On this page" line,
+    you can remove them to keep your CSS cleaner. If you're unsure, keep them.
+  */
+  .VPLocalNav .divider {
+    display: none !important;
+  }
+
+  .VPLocalNav .divider-line {
+    display: none !important;
+  }
+
+  .VPLocalNav {
+    border-bottom: 1px solid var(--vp-c-divider) !important;
+  }
+
+  .VPLocalNav > div {
+    border-bottom: none !important;
+  }
+
+  .VPDocAsideOutline {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+  
+}
+
 /* Add bottom border to navbar */
 .VPNavBar {
   border-bottom: 1px solid var(--vp-c-divider);

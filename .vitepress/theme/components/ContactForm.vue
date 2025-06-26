@@ -81,7 +81,7 @@ const handleSubmit = async () => {
 .form-group textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid var(--vp-c-brand-1-darker-2x);
+  border: 1px solid var(--vp-c-divider);
   border-radius: 4px;
   box-sizing: border-box;
   background-color: var(--vp-c-bg);
