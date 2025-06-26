@@ -17,9 +17,9 @@
     "outDir": "./dist-ts"
   },
   "include": [
-    ".vitepress/**/*",
+    "docs/.vitepress/**/*",
     "**/*.md",
-    ".vitepress/**/*.vue"
+    "docs/.vitepress/**/*.vue"
   ],
   "exclude": [
     "node_modules"

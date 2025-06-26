@@ -1,13 +1,16 @@
 import { defineConfig } from 'vitepress'
 
-// https://vitepress.dev/reference/site-config
+// https://vitepress.dev/reference/configs
 export default defineConfig({
-  srcDir: 'docs', // Content source is the 'src' directory
+  srcDir: 'docs',
   title: "Annekin Meyburgh",
   description: "",
   appearance: 'force-dark',
+  head: [
+    ['link', { rel: 'icon', href: '/static/favicon.ico'}]
+  ],
   themeConfig: {
-    // Set default to dark mode and remove the light/dark mode toggle
+    logo: '/static/hat-wizard-solid.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about' },

@@ -11,7 +11,6 @@ const props = defineProps({
 
 <template>
   <div class="project-card">
-    <img v-if="imageUrl" :src="imageUrl" :alt="title" class="project-image" />
     <div class="project-content">
       <h3 class="project-title">{{ title }}</h3>
       <p class="project-description">{{ description }}</p>
@@ -26,8 +25,8 @@ const props = defineProps({
 
 <style scoped>
 .project-card {
-  background-color: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-divider);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--vp-c-brand-1-darker);
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -37,7 +36,6 @@ const props = defineProps({
 }
 
 .project-card:hover {
-  box-shadow: 0 0 15px var(--vp-c-brand-1);
   border-color: var(--vp-c-brand-1);
   transform: translateY(-5px);
 }
@@ -79,17 +77,19 @@ const props = defineProps({
 
 .project-link {
   display: inline-block;
-  padding: 8px 15px;
-  background-color: var(--vp-c-brand-2);
-  color: white;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--vp-c-brand-1);
+  color: #000;
   text-decoration: none;
-  border-radius: 5px;
-  font-size: 0.85em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .project-link:hover {
-  background-color: var(--vp-c-brand-1);
-  transform: translateY(-2px);
+  background-color: var(--vp-c-brand-1-darker);
+  color: #000;
 }
 </style>

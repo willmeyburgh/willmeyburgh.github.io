@@ -2,39 +2,33 @@
 
 <div class="projects-grid">
   <ProjectCard
-    title="AI-Powered Chatbot"
-    description="A conversational AI chatbot built with natural language processing capabilities, capable of understanding and responding to user queries in real-time."
-    imageUrl="/static/logo.svg"
+    title="Multi Agent Orchestration"
+    description="A multi-agent system orchestrated by a LangGraph-based supervisor, designed to manage Google Calendar events and Google Tasks through specialized AI agents. "
     :links="[
-      { text: 'GitHub', url: 'https://github.com/example/chatbot' },
-      { text: 'Live Demo', url: 'https://example.com/chatbot-demo' }
+      { text: 'GitHub', url: 'https://github.com/awmeyburgh/multi-agent-functions' },
     ]"
   />
   <ProjectCard
-    title="E-commerce Platform"
-    description="A full-stack e-commerce platform featuring user authentication, product catalog, shopping cart, and secure payment gateway integration."
-    imageUrl="/static/logo.svg"
+    title="Hand Gesture Regonition"
+    description="Hand gesture recognition system using MediaPipe and a custom neural network to control commands, potentially integrating with Home Assistant.  Trained on a dataset of recorded gestures."
     :links="[
-      { text: 'GitHub', url: 'https://github.com/example/ecommerce' },
-      { text: 'Live Site', url: 'https://example.com/shop' }
+      { text: 'GitHub', url: 'https://github.com/awmeyburgh/hand-gesture-regonition' },
     ]"
   />
   <ProjectCard
-    title="Data Visualization Dashboard"
-    description="An interactive dashboard for visualizing complex datasets, offering various chart types and filtering options for insightful data analysis."
+    title="Sage Chat"
+    description="A Flask web application enabling users to chat with AI 'sages', featuring user authentication, a SQLite database, and a dynamic chat interface."
     imageUrl="/static/logo.svg"
     :links="[
-      { text: 'GitHub', url: 'https://github.com/example/dashboard' },
-      { text: 'View Dashboard', url: 'https://example.com/dashboard-demo' }
+      { text: 'GitHub', url: 'https://github.com/awmeyburgh/sage-chat' },
     ]"
   />
   <ProjectCard
-    title="Mobile Game Development"
-    description="A casual mobile game developed for iOS and Android, featuring intuitive controls, engaging gameplay mechanics, and in-app purchases."
+    title="Ordis RAG"
+    description=" Ordis is a Retrieval-Augmented Generation (RAG) AI agent inspired by the Cephalon Ordis from the game Warframe. "
     imageUrl="/static/logo.svg"
     :links="[
-      { text: 'GitHub', url: 'https://github.com/example/mobile-game' },
-      { text: 'App Store', url: 'https://example.com/app-store' }
+      { text: 'GitHub', url: 'https://github.com/awmeyburgh/ordis-rag' },
     ]"
   />
 </div>
