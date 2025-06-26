@@ -14,6 +14,7 @@
     </div>
     <input type="hidden" name="_captcha" value="false">
     <input type="text" name="_honey" style="display:none">
+    <input type="hidden" name="_next" value="awmeyburgh.github.io/thanks.html">
     <button type="submit" class="submit-button">Send Message</button>
     <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
