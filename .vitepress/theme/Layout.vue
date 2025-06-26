@@ -7,8 +7,32 @@ onMounted(() => {
   starfield.id = 'starfield';
   document.body.appendChild(starfield);
 
+  let numStars;
+  let numShootingStars;
+  let shootingStartsRange;
+
+  // Determine number of stars based on screen width
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) { // Mobile devices (e.g., up to ~767px)
+    numStars = 150;
+    numShootingStars = 20;
+    shootingStartsRange = 500;
+  } else if (screenWidth < 1024) { // Small tablets / large phones (e.g., 768px to ~1023px)
+    numStars = 250;
+    numShootingStars = 25;
+    shootingStartsRange = 400;
+  } else if (screenWidth < 1280) { // Larger tablets / small laptops (e.g., 1024px to ~1279px)
+    numStars = 350;
+    numShootingStars = 30;
+    shootingStartsRange = 250;
+  } else { // Desktop and larger screens (e.g., 1280px and above)
+    numStars = 500;
+    numShootingStars = 30;
+    shootingStartsRange = 150;
+  }
+
   // Generate static stars
-  const numStars = 500; // Number of static stars
   for (let i = 0; i < numStars; i++) {
     const star = document.createElement('span');
     star.className = 'static-star';
@@ -19,12 +43,11 @@ onMounted(() => {
   }
 
   // Generate shooting stars
-  const numShootingStars = 30; // Number of shooting stars
   for (let i = 0; i < numShootingStars; i++) {
     const shootingStar = document.createElement('div');
     shootingStar.className = 'shooting-star';
     // Randomize starting position and delay
-    shootingStar.style.left = `${Math.random() * 150}%`;
+    shootingStar.style.left = `${Math.random() * shootingStartsRange}%`;
     shootingStar.style.top = `-15%`; // Start at the top
     shootingStar.style.animationDelay = `${Math.random() * 10}s`; // Vary delay
     starfield.appendChild(shootingStar);
@@ -40,7 +63,6 @@ onMounted(() => {
       </div>
     </template>
   </DefaultTheme.Layout>
-  <!-- Stars and shooting stars will be added by the script -->
 </template>
 
 <style scoped>
