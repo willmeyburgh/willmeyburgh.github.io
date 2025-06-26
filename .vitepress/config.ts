@@ -7,10 +7,10 @@ export default defineConfig({
   description: "",
   appearance: 'force-dark',
   head: [
-    ['link', { rel: 'icon', href: '/static/favicon.ico'}]
+    ['link', { rel: 'icon', href: '/public/favicon.ico'}]
   ],
   themeConfig: {
-    logo: '/static/hat-wizard-solid.png',
+    logo: '/hat-wizard-solid.png',
     nav: [
       { text: 'Home', link: '/' },
       { text: 'About', link: '/about' },

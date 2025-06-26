@@ -13,7 +13,7 @@
           <div class="quote-icon">“</div>
           <p class="quote-text">{{ testimonial.quote }}</p>
           <div class="author-details">
-            <img :src="testimonial.image" alt="Author" class="author-image" />
+            <img :src="withBase(testimonial.image)" alt="Author" class="author-image" />
             <div class="author-info">
               <p class="author-name">{{ testimonial.name }}</p>
               <p class="author-title">{{ testimonial.title }}</p>
@@ -32,38 +32,37 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      testimonials: [
-        {
-          quote: "During Annekin’s tenure with our organisation, they consistently demonstrated exceptional professionalism, dedication, and a strong work ethic. Their job performance was consistently of a high standard, and they continually exceeded our expectations. I was particularly impressed with Annekin’s ability to deliver consistently and at times with strict deadlines.",
-          image: '/static/testimonal/yonela.jpg', // Replace with actual image path
-          name: "Ivan Schultz",
-          title: "Integration Development Lead",
-        },
-        {
-          quote: "During the Months that I have worked with Annekin, I have had the opportunity to observe his interpersonal style – he is a pleasant individual who believes in positive motivation and his colleagues are never dissatisfied with his recommendations. I would describe him as a dedicated and enthusiastic individual who has a great penchant for meeting deadlines. Annekin is an accomplished multitasker who has ensured the efficacy of many projects.",
-          image: '/static/testimonal/yonela.jpg', // Replace with actual image path
-          name: "Yonela",
-          title: "Former Colleague",
-        },
-      ],
-      currentIndex: 0,
-    };
+<script setup>
+import { ref } from 'vue';
+import { withBase } from 'vitepress'
+
+const testimonials = ref([
+  {
+    quote: "During Annekin’s tenure with our organisation, they consistently demonstrated exceptional professionalism, dedication, and a strong work ethic. Their job performance was consistently of a high standard, and they continually exceeded our expectations. I was particularly impressed with Annekin’s ability to deliver consistently and at times with strict deadlines.",
+    image: '/testimonal/ivan.jpg',
+    name: "Ivan Schultz",
+    title: "Integration Development Lead",
   },
-  methods: {
-    nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
-    },
-    prevSlide() {
-      this.currentIndex = (this.currentIndex - 1 + this.testimonials.length) % this.testimonials.length;
-    },
-    goToSlide(index) {
-      this.currentIndex = index;
-    },
+  {
+    quote: "During the Months that I have worked with Annekin, I have had the opportunity to observe his interpersonal style – he is a pleasant individual who believes in positive motivation and his colleagues are never dissatisfied with his recommendations. I would describe him as a dedicated and enthusiastic individual who has a great penchant for meeting deadlines. Annekin is an accomplished multitasker who has ensured the efficacy of many projects.",
+    image: '/testimonal/yonela.jpg',
+    name: "Yonela",
+    title: "Former Colleague",
   },
+]);
+
+const currentIndex = ref(0);
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
+};
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
+};
+
+const goToSlide = (index) => {
+  currentIndex.value = index;
 };
 </script>
 
