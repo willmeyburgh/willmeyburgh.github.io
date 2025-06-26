@@ -1,13 +1,16 @@
 <template>
   <div class="testimonial-carousel">
-    <div class="testimonial-container">
+    <div v-if="realSlidesCount > 0"
+      class="testimonial-container"
+      ref="testimonialContainer"
+      :style="{
+        transform: 'translateX(' + (-currentIndex * 100) + '%)',
+      }"
+    >
       <div
         class="testimonial-card"
         v-for="(testimonial, index) in testimonials"
         :key="index"
-        :class="{
-          'active': index === currentIndex,
-        }"
       >
         <div class="testimonial-content">
           <div class="quote-icon">“</div>
@@ -22,48 +25,161 @@
         </div>
       </div>
     </div>
-    <div class="carousel-controls">
-      <button class="carousel-button prev" @click="prevSlide">&#10094;</button>
-      <button class="carousel-button next" @click="nextSlide">&#10095;</button>
+    <div v-else class="no-testimonials">
+      <p>No testimonials available.</p>
     </div>
-    <div class="carousel-dots">
-      <span v-for="(testimonial, index) in testimonials" :key="index" :class="{ 'active': index === currentIndex }" @click="goToSlide(index)"></span>
-    </div>
+
+    <template v-if="realSlidesCount > 1">
+      <div class="carousel-controls">
+        <button class="carousel-button prev" @click="prevSlide">&#10094;</button>
+        <button class="carousel-button next" @click="nextSlide">&#10095;</button>
+      </div>
+      <div class="carousel-dots">
+        <span
+          v-for="(testimonial, index) in originalTestimonials"
+          :key="index"
+          :class="{ 'active': index === activeDotIndex }"
+          @click="goToSlide(index)"
+        ></span>
+      </div>
+    </template>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { withBase } from 'vitepress'
+import { ref, computed, nextTick, onMounted } from 'vue';
+import { withBase } from 'vitepress';
 
-const testimonials = ref([
+const originalTestimonials = ref([
   {
     quote: "During Annekin’s tenure with our organisation, they consistently demonstrated exceptional professionalism, dedication, and a strong work ethic. Their job performance was consistently of a high standard, and they continually exceeded our expectations. I was particularly impressed with Annekin’s ability to deliver consistently and at times with strict deadlines.",
-    image: '/testimonal/ivan.jpg',
+    image: '/testimonial/ivan.jpg',
     name: "Ivan Schultz",
     title: "Integration Development Lead",
   },
   {
     quote: "During the Months that I have worked with Annekin, I have had the opportunity to observe his interpersonal style – he is a pleasant individual who believes in positive motivation and his colleagues are never dissatisfied with his recommendations. I would describe him as a dedicated and enthusiastic individual who has a great penchant for meeting deadlines. Annekin is an accomplished multitasker who has ensured the efficacy of many projects.",
-    image: '/testimonal/yonela.jpg',
+    image: '/testimonial/yonela.jpg',
     name: "Yonela",
     title: "Former Colleague",
   },
 ]);
 
-const currentIndex = ref(0);
+const realSlidesCount = computed(() => originalTestimonials.value.length);
+
+const testimonials = computed(() => {
+  if (realSlidesCount.value === 0) {
+    return [];
+  }
+
+  const extended = [];
+  extended.push(originalTestimonials.value[realSlidesCount.value - 1]);
+  extended.push(...originalTestimonials.value);
+  extended.push(originalTestimonials.value[0]);
+  return extended;
+});
+
+const extendedTestimonialsLength = computed(() => testimonials.value.length);
+
+
+const currentIndex = ref(realSlidesCount.value > 0 ? 1 : 0);
+
+const testimonialContainer = ref(null);
+
+const isSliding = ref(false);
+
+const TRANSITION_DURATION = 500; // milliseconds, matching CSS transition duration
+
+onMounted(() => {
+  if (testimonialContainer.value && realSlidesCount.value > 0) {
+    testimonialContainer.value.style.transition = `transform ${TRANSITION_DURATION / 1000}s ease`;
+  }
+});
+
+const handleLoopSnap = (targetIndex) => {
+  if (!testimonialContainer.value) return;
+
+  const containerElement = testimonialContainer.value;
+
+  containerElement.style.transition = 'none';
+
+  currentIndex.value = targetIndex;
+
+  containerElement.offsetWidth; // Force reflow
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (containerElement) {
+        containerElement.style.transition = `transform ${TRANSITION_DURATION / 1000}s ease`;
+      }
+      isSliding.value = false;
+    });
+  });
+};
 
 const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % testimonials.value.length;
+  if (isSliding.value || realSlidesCount.value <= 1) {
+    return;
+  }
+
+  isSliding.value = true;
+  currentIndex.value++;
+
+  if (currentIndex.value === extendedTestimonialsLength.value - 1) {
+    setTimeout(() => {
+      handleLoopSnap(1);
+    }, TRANSITION_DURATION);
+  } else {
+    setTimeout(() => {
+      isSliding.value = false;
+    }, TRANSITION_DURATION);
+  }
 };
 
 const prevSlide = () => {
-  currentIndex.value = (currentIndex.value - 1 + testimonials.value.length) % testimonials.value.length;
+  if (isSliding.value || realSlidesCount.value <= 1) {
+    return;
+  }
+
+  isSliding.value = true;
+  currentIndex.value--;
+
+  if (currentIndex.value === 0) {
+    setTimeout(() => {
+      handleLoopSnap(extendedTestimonialsLength.value - 2);
+    }, TRANSITION_DURATION);
+  } else {
+    setTimeout(() => {
+      isSliding.value = false;
+    }, TRANSITION_DURATION);
+  }
 };
 
 const goToSlide = (index) => {
-  currentIndex.value = index;
+  if (isSliding.value || realSlidesCount.value === 0) {
+    return;
+  }
+
+  isSliding.value = true;
+  currentIndex.value = index + 1;
+
+  setTimeout(() => {
+    isSliding.value = false;
+  }, TRANSITION_DURATION);
 };
+
+
+const activeDotIndex = computed(() => {
+  if (realSlidesCount.value === 0) return -1;
+
+  if (currentIndex.value === 0) {
+    return realSlidesCount.value - 1;
+  } else if (currentIndex.value === extendedTestimonialsLength.value - 1) {
+    return 0;
+  } else {
+    return currentIndex.value - 1;
+  }
+});
 </script>
 
 <style scoped>
@@ -72,40 +188,34 @@ const goToSlide = (index) => {
   width: 100%;
   overflow: hidden;
   padding: 20px 0;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--vp-c-brand-1-darker);
+  border-radius: 8px;
 }
 
 .testimonial-container {
-  display: block;
-  transition: transform 0.5s ease;
+  display: flex;
   width: 100%;
+  transition: transform 0.5s ease;
 }
 
 .testimonial-card {
-  flex: 0 0 500px; /* Adjust width as needed */
+  flex-shrink: 0;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   padding: 20px;
-  box-sizing: border-box;
-  background-color: rgba(0, 0, 0, 0.5); /* 0.5 transparent background */
-  border: 2px solid var(--vp-c-brand-1-darker); 
-  border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: left;
-  width: 100%;
-  flex-shrink: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease, width 0.5s ease;
-  opacity: 0.5;
-  transform: scale(0.8);
 }
 
 .testimonial-card.active {
-  opacity: 1;
-  transform: scale(1);
-  z-index: 1;
-}
-
-.testimonial-card.prev,
-.testimonial-card.next {
-  opacity: 0.7;
-  transform: scale(0.9);
+  /* No specific styles needed here for the sliding effect */
 }
 
 .testimonial-content {
@@ -113,13 +223,13 @@ const goToSlide = (index) => {
 }
 
 .quote-icon {
-  font-size: 2em;
+  font-size: 4em;
   color: var(--vp-c-brand-1);
   margin-bottom: 10px;
 }
 
 .quote-text {
-  word-wrap: break-word; /* For text wrapping */
+  word-wrap: break-word;
 }
 
 .author-details {
@@ -137,13 +247,15 @@ const goToSlide = (index) => {
 }
 
 .author-info {
-  font-size: 0.9em;
-  color: var(--vp-c-text-2)
+  font-size: 0.8em;
+  color: var(--vp-c-text-2);
 }
 
 .author-name {
   font-weight: bold;
-  color: var(--vp-c-brand-1)
+  color: var(--vp-c-brand-1);
+  margin-bottom: -20px;
+  font-size: 1.4em;
 }
 
 .carousel-controls {
@@ -154,6 +266,7 @@ const goToSlide = (index) => {
   justify-content: space-between;
   transform: translateY(-50%);
   padding: 0 10px;
+  z-index: 10;
 }
 
 .carousel-button {
@@ -174,6 +287,11 @@ const goToSlide = (index) => {
 .carousel-dots {
   text-align: center;
   margin-top: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .carousel-dots span {
@@ -189,5 +307,11 @@ const goToSlide = (index) => {
 
 .carousel-dots span.active {
   background-color: var(--vp-c-brand-1);
+}
+
+.no-testimonials {
+  text-align: center;
+  padding: 50px;
+  color: var(--vp-c-text-2);
 }
 </style>

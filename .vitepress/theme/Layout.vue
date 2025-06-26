@@ -36,7 +36,7 @@ onMounted(() => {
   <DefaultTheme.Layout>
     <template #doc-footer-before>
       <div class="custom-footer">
-        <p>Built with <span style="color: var(--vp-c-brand-1);">Vue</span> and <span style="color: var(--vp-c-brand-2);">VitePress</span>.</p>
+        <p>Hosted by <span style="color: var(--vp-c-brand-3);">Github Pages</span>.</p>
       </div>
     </template>
   </DefaultTheme.Layout>

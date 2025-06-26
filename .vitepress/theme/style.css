@@ -12,7 +12,7 @@
 
 /* Add bottom border to navbar */
 .VPNavBar {
-  border-bottom: 1px solid var(--vp-c-brand-1-darker-2x);
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .VPNavBar .VPLink:hover {
