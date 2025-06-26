@@ -6,13 +6,13 @@ hero:
   name: "My Personal Portfolio"
   text: "A modern portfolio and resume website"
   tagline: My great project tagline
-  actions:
-    - theme: alt
-      text: Guide
-      link: /guide
-    - theme: alt
-      text: Config Examples
-      link: /config-examples
+#   actions:
+#     - theme: alt
+#       text: Projects
+#       link: /docs/contact
+#     - theme: alt
+#       text: Contact
+#       link: /docs/contact
 
 features:
   - icon: 💡
