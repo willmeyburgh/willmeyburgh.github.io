@@ -3,6 +3,7 @@ import Layout from './Layout.vue'
 import ProjectCard from './components/ProjectCard.vue'
 import './style.css'
 
+
 export default {
   ...DefaultTheme,
   Layout: Layout,
