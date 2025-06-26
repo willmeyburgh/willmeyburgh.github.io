@@ -7,7 +7,7 @@ export default defineConfig({
   description: "",
   appearance: 'force-dark',
   head: [
-    ['link', { rel: 'icon', href: '/public/favicon.ico'}]
+    ['link', { rel: 'icon', href: '/favicon.ico'}]
   ],
   themeConfig: {
     logo: '/hat-wizard-solid.png',
