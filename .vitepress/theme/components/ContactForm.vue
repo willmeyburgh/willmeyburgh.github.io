@@ -12,6 +12,8 @@
       <label for="message">Message:</label>
       <textarea id="message" name = "message" v-model="form.message" rows="5" required></textarea>
     </div>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
     <button type="submit" class="submit-button">Send Message</button>
     <p v-if="successMessage" class="success-message">{{ successMessage }}</p>
     <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
