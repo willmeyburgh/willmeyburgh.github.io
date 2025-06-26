@@ -15,6 +15,10 @@
   display: none;
 }
 
+.VPSocialLink:hover{
+  color: var(--vp-c-brand) !important;
+}
+
 /* Hide the line under "On this page" in mobile */
 /* Try these in your .vitepress/theme/custom.css, one by one if needed */
 

@@ -19,7 +19,8 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/awmeyburgh' }
+      { icon: 'github', link: 'https://github.com/awmeyburgh' },
+      { icon: 'linkedin', link: 'https://za.linkedin.com/in/annekin-meyburgh-535662199' },
     ]
   }
 })

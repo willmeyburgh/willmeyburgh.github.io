@@ -5,6 +5,7 @@ import ContactForm from './components/ContactForm.vue'
 import TestimonialCarousel from './components/TestimonialCarousel.vue'
 
 import './style.css'
+import GoHomeButton from './components/GoHomeButton.vue'
 
 
 export default {
@@ -14,5 +15,6 @@ export default {
     app.component('ProjectCard', ProjectCard)
     app.component('ContactForm', ContactForm)
     app.component('TestimonialCarousel', TestimonialCarousel)
+    app.component('GoHomeButton', GoHomeButton)
   }
 }

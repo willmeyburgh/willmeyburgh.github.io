@@ -81,7 +81,7 @@ const handleSubmit = async () => {
 .form-group textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1px solid var(--vp-c-divider);
+  /* border: 1px solid var(--vp-c-divider); */
   border-radius: 4px;
   box-sizing: border-box;
   background-color: var(--vp-c-bg);
@@ -91,7 +91,7 @@ const handleSubmit = async () => {
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
-  border-color: var(--vp-c-brand-1);
+  border: 1px solid var(--vp-c-brand-1);
   outline: none;
   box-shadow: 0 0 2px var(--vp-c-brand-soft);
 

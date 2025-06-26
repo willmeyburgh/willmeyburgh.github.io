@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonial-carousel">
+  <div class="testimonial-carousel" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
     <div v-if="realSlidesCount > 0"
       class="testimonial-container"
       ref="testimonialContainer"
@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import { ref, computed, nextTick, onMounted } from 'vue';
+import { ref, computed, nextTick, onMounted, onBeforeUnmount } from 'vue';
 import { withBase } from 'vitepress';
 
 const originalTestimonials = ref([
@@ -90,11 +90,27 @@ const isSliding = ref(false);
 
 const TRANSITION_DURATION = 500; // milliseconds, matching CSS transition duration
 
+// Touch variables
+const touchStartX = ref(0);
+const touchEndX = ref(0);
+const minSwipeDistance = 50; // Minimum pixels for a swipe to register
+
 onMounted(() => {
   if (testimonialContainer.value && realSlidesCount.value > 0) {
     testimonialContainer.value.style.transition = `transform ${TRANSITION_DURATION / 1000}s ease`;
   }
+  // Add resize listener to potentially re-evaluate carousel behavior on orientation change
+  window.addEventListener('resize', handleResize);
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
+const handleResize = () => {
+  // If you had more complex responsive logic, it would go here.
+  // For now, this just ensures the component re-evaluates its state if needed.
+};
 
 const handleLoopSnap = (targetIndex) => {
   if (!testimonialContainer.value) return;
@@ -168,7 +184,6 @@ const goToSlide = (index) => {
   }, TRANSITION_DURATION);
 };
 
-
 const activeDotIndex = computed(() => {
   if (realSlidesCount.value === 0) return -1;
 
@@ -180,6 +195,33 @@ const activeDotIndex = computed(() => {
     return currentIndex.value - 1;
   }
 });
+
+// Touch event handlers
+const handleTouchStart = (event) => {
+  touchStartX.value = event.touches[0].clientX;
+};
+
+const handleTouchMove = (event) => {
+  touchEndX.value = event.touches[0].clientX;
+};
+
+const handleTouchEnd = () => {
+  if (touchStartX.value === 0 && touchEndX.value === 0) return; // No swipe detected
+
+  const distance = touchEndX.value - touchStartX.value;
+
+  if (distance > minSwipeDistance) {
+    // Swiped right
+    prevSlide();
+  } else if (distance < -minSwipeDistance) {
+    // Swiped left
+    nextSlide();
+  }
+
+  // Reset touch values
+  touchStartX.value = 0;
+  touchEndX.value = 0;
+};
 </script>
 
 <style scoped>
@@ -202,6 +244,8 @@ const activeDotIndex = computed(() => {
   display: flex;
   width: 100%;
   transition: transform 0.5s ease;
+  /* Disable pointer events on the container during transition for smoother swiping */
+  pointer-events: auto;
 }
 
 .testimonial-card {
@@ -313,5 +357,12 @@ const activeDotIndex = computed(() => {
   text-align: center;
   padding: 50px;
   color: var(--vp-c-text-2);
+}
+
+/* Media query for mobile */
+@media (max-width: 768px) {
+  .carousel-controls {
+    display: none; /* Hide arrows on mobile */
+  }
 }
 </style>
