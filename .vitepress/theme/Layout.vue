@@ -64,9 +64,9 @@ onMounted(() => {
 
 <template>
   <DefaultTheme.Layout>
-    <template #doc-footer-before>
+    <template #layout-bottom>
       <div class="custom-footer">
-        <p>Hosted by <span style="color: var(--vp-c-brand-3);">Github Pages</span>.</p>
+        <p>Hosted on <span style="color: var(--vp-c-brand-3);">Github Pages</span>.</p>
       </div>
     </template>
   </DefaultTheme.Layout>

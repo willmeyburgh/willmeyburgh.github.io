@@ -13,9 +13,10 @@ export default defineConfig({
     logo: '/hat-wizard-solid.png',
     nav: [
       { text: 'Home', link: '/' },
+      // { text: 'Blog', link: '/blog', activeMatch: '^/blog/' },
       { text: 'About', link: '/about' },
       { text: 'Projects', link: '/projects' },
-      { text: 'Contact', link: '/contact' }
+      { text: 'Contact', link: '/contact' },
     ],
 
     socialLinks: [
