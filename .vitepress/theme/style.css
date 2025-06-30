@@ -15,6 +15,10 @@
   display: none;
 }
 
+span.text{
+  color: var(--vp-c-brand-3);
+}
+
 .VPSocialLink:hover{
   color: var(--vp-c-brand) !important;
 }
@@ -77,6 +81,7 @@
 /* Add bottom border to navbar */
 .VPNavBar {
   border-bottom: 1px solid var(--vp-c-divider);
+  background-color: var(--vp-c-bg);
 }
 
 .VPNavBar .VPLink:hover {
