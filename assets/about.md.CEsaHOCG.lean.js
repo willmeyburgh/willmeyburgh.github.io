@@ -1,1 +1,0 @@
-import{_ as o,c as n,o as a,ag as t}from"./chunks/framework.LfvW6Wcp.js";const g=JSON.parse('{"title":"About","description":"","frontmatter":{},"headers":[],"relativePath":"about.md","filePath":"about.md"}'),i={name:"about.md"};function s(r,e,l,d,h,p){return a(),n("div",null,e[0]||(e[0]=[t("",8)]))}const m=o(i,[["render",s]]);export{g as __pageData,m as default};
