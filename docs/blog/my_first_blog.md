@@ -2,7 +2,7 @@
 title: The Journey Begins - My First Steps in Web Development
 date: 2025-06-15
 description: A reflection on starting my web development journey and the initial challenges and excitements.
-author: Annekin
+author: Will
 tags: [Web Development, Learning, Journey, Frontend]
 next:
     text: Exploring VitePress - A Developer's Delight

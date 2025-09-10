@@ -2,7 +2,7 @@
 title: Exploring VitePress - A Developer's Delight
 date: 2025-06-20
 description: A deep dive into VitePress, its features, and why it's becoming a favorite for documentation and static sites.
-author: Annekin
+author: Will
 tags: [VitePress, Vue.js, Static Site Generator, Frontend, Development]
 prev:
     text: The Journey Begins - My First Steps in Web Development

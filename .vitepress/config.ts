@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/configs
 export default defineConfig({
   srcDir: 'docs',
-  title: "Annekin Meyburgh",
+  title: "Will Meyburgh",
   description: "",
   appearance: 'force-dark',
   head: [
@@ -20,8 +20,8 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/awmeyburgh' },
-      { icon: 'linkedin', link: 'https://za.linkedin.com/in/annekin-meyburgh-535662199' },
+      { icon: 'github', link: 'https://github.com/willmeyburgh' },
+      { icon: 'linkedin', link: 'https://za.linkedin.com/in/willmeyburgh' },
     ]
   }
 })

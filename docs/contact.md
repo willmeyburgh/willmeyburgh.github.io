@@ -4,9 +4,9 @@ I'm always open to new opportunities, collaborations, or just a friendly chat! F
 
 ## How to Connect
 
-*   **Email:** [annekinmeyburgh@gmail.com](mailto:annekinmeyburgh@gmail.com)
-*   **LinkedIn:** [https://za.linkedin.com/in/annekin-meyburgh-535662199](https://za.linkedin.com/in/annekin-meyburgh-535662199)
-*   **GitHub:** [https://github.com/awmeyburgh](https://github.com/awmeyburgh)
+*   **Email:** [willmeyburgh@gmail.com](mailto:willmeyburgh@gmail.com)
+*   **LinkedIn:** [https://za.linkedin.com/in/willmeyburgh-535662199](https://za.linkedin.com/in/willmeyburgh)
+*   **GitHub:** [https://github.com/awmeyburgh](https://github.com/willmeyburgh)
 
 ## Send a Message
 

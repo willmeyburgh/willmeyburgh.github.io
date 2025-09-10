@@ -52,13 +52,13 @@ import { withBase } from 'vitepress';
 
 const originalTestimonials = ref([
   {
-    quote: "During Annekin’s tenure with our organisation, they consistently demonstrated exceptional professionalism, dedication, and a strong work ethic. Their job performance was consistently of a high standard, and they continually exceeded our expectations. I was particularly impressed with Annekin’s ability to deliver consistently and at times with strict deadlines.",
+    quote: "During Will’s tenure with our organisation, they consistently demonstrated exceptional professionalism, dedication, and a strong work ethic. Their job performance was consistently of a high standard, and they continually exceeded our expectations. I was particularly impressed with Will’s ability to deliver consistently and at times with strict deadlines.",
     image: '/testimonial/ivan.jpg',
     name: "Ivan Schultz",
     title: "Integration Development Lead",
   },
   {
-    quote: "During the Months that I have worked with Annekin, I have had the opportunity to observe his interpersonal style – he is a pleasant individual who believes in positive motivation and his colleagues are never dissatisfied with his recommendations. I would describe him as a dedicated and enthusiastic individual who has a great penchant for meeting deadlines. Annekin is an accomplished multitasker who has ensured the efficacy of many projects.",
+    quote: "During the Months that I have worked with Will, I have had the opportunity to observe his interpersonal style – he is a pleasant individual who believes in positive motivation and his colleagues are never dissatisfied with his recommendations. I would describe him as a dedicated and enthusiastic individual who has a great penchant for meeting deadlines. Will is an accomplished multitasker who has ensured the efficacy of many projects.",
     image: '/testimonial/yonela.jpg',
     name: "Yonela",
     title: "Former Colleague",

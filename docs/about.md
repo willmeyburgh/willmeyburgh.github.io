@@ -1,6 +1,6 @@
 # About
 
-Hello! I'm Annekin. My career as a software engineer has been deeply rooted in back-end development, where I honed my skills in building robust, scalable, and efficient systems. This solid foundation has now propelled me into the dynamic fields of machine learning and agentic AI. I'm driven by the same passion for turning complex problems into elegant solutions, now with a focus on designing and implementing intelligent systems that push technological boundaries. I believe my structured engineering approach is a significant asset in navigating the complexities of AI development.
+Hello! I'm Will. My career as a software engineer has been deeply rooted in back-end development, where I honed my skills in building robust, scalable, and efficient systems. This solid foundation has now propelled me into the dynamic fields of machine learning and agentic AI. I'm driven by the same passion for turning complex problems into elegant solutions, now with a focus on designing and implementing intelligent systems that push technological boundaries. I believe my structured engineering approach is a significant asset in navigating the complexities of AI development.
 
 ## My Expertise
 

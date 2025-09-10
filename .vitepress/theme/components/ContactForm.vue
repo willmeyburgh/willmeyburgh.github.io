@@ -1,5 +1,5 @@
 <template>
-  <form action="https://formsubmit.co/annekinmeyburgh@gmail.com" method="POST" class="contact-form">
+  <form action="https://formsubmit.co/willmeyburgh@gmail.com" method="POST" class="contact-form">
     <div class="form-group">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" v-model="form.name" required>

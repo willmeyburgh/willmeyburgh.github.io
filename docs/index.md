@@ -1,6 +1,6 @@
 # Welcome to My Personal Website!
 
-Welcome! I'm Annekin, a software engineer with a solid foundation in back-end engineering, now channeling my passion into machine learning and agentic AI. My journey is about transforming ideas into tangible, intelligent solutions, focusing on building scalable and efficient applications for the future.
+Welcome! I'm Will, a software engineer with a solid foundation in back-end engineering, now channeling my passion into machine learning and agentic AI. My journey is about transforming ideas into tangible, intelligent solutions, focusing on building scalable and efficient applications for the future.
 
 ## What You'll Find Here
 

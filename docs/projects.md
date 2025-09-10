@@ -3,7 +3,7 @@
 <div class="projects-grid">
 
   <ProjectCard
-    title="Mindful Lucidity"
+    title="MindfulLucidity"
     description="A web app for lucid dreaming, featuring a dream journal to help you achieve and track lucidity."
     :links="[
       { text: 'GitHub', url: 'https://github.com/mindfullucidity/mindfullucidity.github.io' },
